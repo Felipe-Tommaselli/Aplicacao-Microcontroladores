@@ -1,0 +1,47 @@
+; ----------------------------------------------------------------------
+; @author: Felipe Andrade Garcia Tommaselli (11800910)
+
+; Lista 1
+; Exercicio 7
+
+; ----------------------------------------------------------------------
+
+	ORG	0000H
+	SJMP	PROG
+
+	ORG	0003H
+	SJMP	VALOR
+
+; ----------------------------------------------------------------------
+
+PROG:	SETB	EX0
+	SETB	IT0
+	SETB	EA
+	MOV	R0,#00H
+LOOP:	CJNE	R0,#40,TT2
+TT2:	JC	LOOP
+	MOV	A,R0
+	SUBB	A,#40H
+	CJNE	A,#00,TROCO
+	SJMP	$
+
+; ----------------------------------------------------------------------
+
+VALOR:	JB	P1.2,V10
+	MOV	A,R0
+	ADD	A,#0AH
+	MOV	R0,A
+V10:	JB	P1.1,V5
+	MOV	A,R0
+	ADD	A,#05H
+	MOV	R0,A
+V5:	MOV	A,R0
+	ADD	A,#05H
+	MOV	R0,A
+	RETI
+TROCO:	INC	P2
+	SUBB	A,#05H
+	CJNE	A,#00H,TROCO
+	SJMP	$
+
+	END

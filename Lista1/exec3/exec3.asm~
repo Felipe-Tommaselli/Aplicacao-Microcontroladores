@@ -1,0 +1,29 @@
+; ----------------------------------------------------------------------
+; @author: Felipe Andrade Garcia Tommaselli (11800910)
+
+; Lista 1
+; Exercicio 3
+
+; ----------------------------------------------------------------------
+
+		ORG	0h
+		SJMP	PROG
+
+		ORG	03h
+		SJMP	EXT_0
+
+		ORG	13h
+		SJMP	EXT_0
+
+PROG:		SETB	EX0
+		SETB	EX1
+		SETB	IT0
+		SETB	IT1
+		SETB	EA
+		SJMP	$
+
+EXT_0:		CPL	P1.0
+		CPL	P1.1
+		RETI
+
+		END

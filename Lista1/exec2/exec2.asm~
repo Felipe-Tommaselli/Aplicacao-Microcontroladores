@@ -1,0 +1,51 @@
+; ----------------------------------------------------------------------
+; @author: Felipe Andrade Garcia Tommaselli (11800910)
+
+; Lista 1
+; Exercicio 2
+
+; ----------------------------------------------------------------------
+
+		ORG	0
+		SJMP	PROG
+
+		ORG	03h
+		SJMP	EXT_0
+
+		ORG	13h
+		SJMP	EXT_1
+
+		ORG	1Bh
+		SJMP	TIMER_0
+; ----------------------------------------------------------------------
+
+PROG:		SETB	EA
+		SETB	EX0 ; seta interrupçao externa 0
+		SETB	EX1 ; externa 1
+		SETB	ET1 ; seta timer 1
+		SETB	IT0 ; ex0 ativada com descida
+		SETB	IT1 ; ex1
+
+		SETB	PX0
+		CLR	PX1
+		CLR	PT1
+		SJMP	$
+
+EXT_0:		MOV	DPTR,#4000h
+		MOVX	A,@DPTR
+		MOV	DPTR, #4200h
+		MOVX	@DPTR, A
+		RETI
+
+EXT_1:		MOV	DPTR, #4200h
+		MOVX	A, @DPTR
+		MOV	P1, A
+		RETI
+
+TIMER_0:	MOV	A, P2
+		MOV	DPTR,#4200H
+		MOVX	@DPTR,A
+		RETI
+		
+
+		END
