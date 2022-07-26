@@ -1,0 +1,197 @@
+; ----------------------------------------------------------------------
+; @author: Felipe Andrade Garcia Tommaselli (11800910)
+
+; Lista 2
+; Exercicio 1
+
+; ----------------------------------------------------------------------
+
+	ORG		0
+	SJMP		LOOP
+	ORG		0003H
+	LJMP		EXT0
+
+; ----------------------------------------------------------------------
+
+	SC	EQU		P3.6
+
+; ----------------------------------------------------------------------
+
+LOOP:
+	SETB	SC
+	ACALL	DELAY
+	CLR 	SC
+	ACALL	ESCREVE7
+	SJMP	LOOP
+
+; ----------------------------------------------------------------------
+
+ESCREVE7:
+	CLR		P3.7
+	MOV		A,31H
+	ACALL	DISPLAY
+	SETB	P3.7
+	MOV		A,30H
+	ACALL	DISPLAY
+	RET
+
+; ----------------------------------------------------------------------
+
+DISPLAY:
+	CJNE	A,#0H,DIGITO1
+	MOV		P2,#7EH
+	RET
+DIGITO1:
+	CJNE	A,#1H,DIGITO2
+	MOV		P2,#30H
+	RET
+DIGITO2:
+	CJNE	A,#2H,DIGITO3
+	MOV		P2,#6DH
+	RET
+DIGITO3:
+	CJNE	A,#3H,DIGITO4
+	MOV		P2,#79H
+	RET
+DIGITO4:
+	CJNE	A,#4H,DIGITO5
+	MOV		P2,#33H
+	RET
+DIGITO5:
+	CJNE	A,#5H,DIGITO6
+	MOV		P2,#5BH
+	RET
+DIGITO6:
+	CJNE	A,#6H,DIGITO7
+	MOV		P2,#5FH
+	RET
+DIGITO7:
+	CJNE	A,#7H,DIGITO8
+	MOV		P2,#70H
+	RET
+DIGITO8:
+	CJNE	A,#8H,DIGITO9
+	MOV		P2,#7FH
+	RET
+DIGITO9:
+	CJNE	A,#9H,DIGITO10
+	MOV		P2,#7BH
+	RET
+DIGITO10:
+	CJNE	A,#0AH,DIGITO11
+	MOV		P2,#77H
+	RET
+DIGITO11:
+	CJNE	A,#0BH,DIGITO12
+	MOV		P2,#1FH
+	RET
+DIGITO12:
+	CJNE	A,#0CH,DIGITO13
+	MOV		P2,#4EH
+	RET
+DIGITO13:
+	CJNE	A,#0DH,DIGITO14
+	MOV		P2,#3DH
+	RET
+DIGITO14:
+	CJNE	A,#0EH,DIGITO15
+	MOV		P2,#4FH
+	RET
+DIGITO15:
+	CJNE	A,#4H,DIGITOFIM
+	MOV		P2,#47H
+	RET
+DIGITOFIM:
+	RET
+
+; ----------------------------------------------------------------------
+
+EXT0:
+	MOV		A,P1
+	SWAP	A
+	ANL		A,#0FH
+	CJNE	A,#0H,TESTE1
+	MOV		31H,#0H
+	MOV		30H,#0h
+	RETI
+TESTE1:
+	CJNE	A,#1H,TESTE2
+	MOV		31H,#0H
+	MOV		30H,#01h
+	RETI
+TESTE2:
+	CJNE	A,#2H,TESTE3
+	MOV		31H,#0H
+	MOV		30H,#02h
+	RETI
+TESTE3:
+	CJNE	A,#3H,TESTE4
+	MOV		31H,#0H
+	MOV		30H,#03h
+	RETI
+TESTE4:
+	CJNE	A,#4H,TESTE5
+	MOV		31H,#0H
+	MOV		30H,#04h
+	RETI
+TESTE5:
+	CJNE	A,#5H,TESTE6
+	MOV		31H,#0H
+	MOV		30H,#05h
+	RETI
+TESTE6:
+	CJNE	A,#6H,TESTE7
+	MOV		31H,#0H
+	MOV		30H,#06h
+	RETI
+TESTE7:
+	CJNE	A,#7H,TESTE8
+	MOV		31H,#0H
+	MOV		30H,#07h
+	RETI
+TESTE8:
+	CJNE	A,#8H,TESTE9
+	MOV		31H,#0H
+	MOV		30H,#08h
+	RETI
+TESTE9:
+	CJNE	A,#9H,TESTE10
+	MOV		31H,#0H
+	MOV		30H,#09h
+	RETI
+TESTE10:
+	CJNE	A,#0AH,TESTE11
+	MOV		31H,#01H
+	MOV		30H,#00h
+	RETI
+TESTE11:
+	CJNE	A,#0BH,TESTE12
+	MOV		31H,#01H
+	MOV		30H,#01H
+	RETI
+TESTE12:
+	CJNE	A,#0CH,TESTE13
+	MOV		31H,#01H
+	MOV		30H,#02h
+	RETI
+TESTE13:
+	CJNE	A,#0DH,TESTE14
+	MOV		31H,#01H
+	MOV		30H,#03h
+	RETI
+TESTE14:
+	CJNE	A,#0EH,TESTE15
+	MOV		31H,#01H
+	MOV		30H,#04h
+	RETI
+TESTE15:
+	CJNE	A,#0FH,TESTEFIM
+	MOV		31H,#01H
+	MOV		30H,#05h
+	RETI
+TESTEFIM:
+	RETI
+; ----------------------------------------------------------------------
+
+DELAY:	END
+
