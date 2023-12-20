@@ -1,8 +1,8 @@
-# Aplicação de Microprocessadores I/ Applications of Microprocessors I
+# Aplicação de Microprocessadores I/ Applications of Microprocessors I (2022)
 
-Compilado de programas, anotações e atividades da disciplina de Aplicação de Microprocessadores I (SEL0433) oferecida pelo ICMC-USP. Todos os programas desenvolvidos na disciplina foram feitos em linguagem ASSEMBLY e possuem apenas fins educacionais.
+Compilado de programas, anotações e atividades da disciplina de Aplicação de Microprocessadores I (SEL0433) oferecida pela EESC-USP. Todos os programas desenvolvidos na disciplina foram feitos em linguagem ASSEMBLY e possuem apenas fins educacionais.
 
-Compiled of syllabuses, notes and activities from the Applications of Microprocessors I (SEL0433) offered by ICMC-USP. All programs developed in the discipline were written in ASSEMBLY language and have educational purposes only.
+Compiled of syllabuses, notes and activities from the Applications of Microprocessors I (SEL0433) offered by EESC-USP. All programs developed in the discipline were written in ASSEMBLY language and have educational purposes only.
 
 ## A disciplina/ The discipline
 
